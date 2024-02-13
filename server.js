@@ -3,6 +3,7 @@ const http = require('http')
 const express = require('express')
 const bodyParser = require('body-parser')
 const path = require('path')
+const { studentContoller } = require('./controllers')
 
 const app = express()
 
@@ -50,6 +51,7 @@ route.post('/add',(req,res,next)=>{
     })
 
 })
+
 
 
 
