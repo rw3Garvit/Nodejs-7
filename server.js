@@ -2,7 +2,7 @@ require('dotenv').config()
 const http = require('http')
 const express = require('express')
 const bodyParser = require('body-parser')
-const { dbConnect } = require('./db/dbConnect')
+const connectDB = require('./db/dbConnect')
 const routes = require('./routes')
 const app = express()
 
@@ -14,13 +14,13 @@ app.use(bodyParser.json())
 
 
 
-
 //routes
 app.use('/v1',routes)
 
 
 //db connection
-dbConnect()
+connectDB()
+
 
 //server
 http.createServer(app).listen(process.env.PORT,()=>{

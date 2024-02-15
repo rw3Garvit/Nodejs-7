@@ -1,1 +1,1 @@
-module.exports.studentContoller = require('./student.controller')
+module.exports.studentContoller = require('./student.contoller')

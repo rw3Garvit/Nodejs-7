@@ -6,4 +6,6 @@ const studentRoute = require('./student.route')
 routes.use('/student',studentRoute)
 
 
+
+
 module.exports=routes

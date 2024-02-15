@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
+const connectDB=()=>{
 
-const dbConnect=()=>{
 
-    mongoose.connect('mongodb://localhost:27017/node7').then(()=>{
-        console.log('db connected');
+    mongoose.connect('mongodb://127.0.0.1:27017/node7').then(()=>{
+        console.log('db Connected');
     }).catch((err)=>{
-        console.log(err,'err');
+        console.log(err);
     })
 
 }
 
-module.exports={dbConnect}
+module.exports=connectDB

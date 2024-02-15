@@ -1,8 +1,18 @@
 const { studentSchema } = require("../models")
 
+
 const addStudent =(body)=>{
 
-        return studentSchema.create(body)
+   return studentSchema.create(body)
+
 }
 
-module.exports ={addStudent}
+
+const getStudent= () => {
+
+   return studentSchema.find()
+
+}
+
+
+module.exports={addStudent,getStudent}
