@@ -7,11 +7,14 @@ const addStudent =async (req,res)=>{
 
     let user = await studentService.addStudent(body)
 
-    // console.log(user,"user");
-    res.status(201).json({
-        message:"user created success",
-        user
-    })
+
+    res.render('./index',{message:user})
+
+    // // console.log(user,"user");
+    // res.status(201).json({
+    //     message:"user created success",
+    //     user
+    // })
 }
 
 const getStudent =async (req,res)=>{
