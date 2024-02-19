@@ -33,4 +33,35 @@ const getStudent =async (req,res)=>{
 
 
 
-module.exports={addStudent,getStudent}
+const deleteStudent= async(req,res)=>{
+try{
+
+
+    
+    let {id} = req.params;
+    console.log(id);
+
+    let studentExist = await studentService.findUser(id)
+
+    if(!studentExist)
+    {
+        res.status(400).json({message:"user not found"})
+    }
+
+    // console.log(studentExist);
+
+    let user = await studentService.deleteStudent(id)
+   
+
+    res.status(200).json({message:'user deleted success',user})
+
+
+}catch(err)
+{
+    console.log(err,'err');
+}
+}
+
+
+
+module.exports={addStudent,getStudent,deleteStudent}

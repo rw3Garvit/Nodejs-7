@@ -29,7 +29,7 @@ app.get('/',async (req,res)=>{
 
     let user = await studentService.getStudent()
 
-    console.log(user,"user");
+    // console.log(user,"user");
     
     res.render('./index',{message:user})
 

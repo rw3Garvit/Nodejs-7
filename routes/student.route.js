@@ -5,6 +5,7 @@ const route = express.Router()
 
 route.post('/add',studentContoller.addStudent)
 route.get('/get',studentContoller.getStudent)
+route.delete('/delete/:id',studentContoller.deleteStudent)
 
 
 

@@ -15,4 +15,14 @@ const getStudent= () => {
 }
 
 
-module.exports={addStudent,getStudent}
+const findUser = (id)=>{
+
+   return studentSchema.findById(id)
+}
+
+
+const deleteStudent =(id)=>{
+   return studentSchema.findByIdAndDelete(id)
+}
+
+module.exports={addStudent,getStudent,findUser,deleteStudent}
