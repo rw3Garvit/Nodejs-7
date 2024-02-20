@@ -1,33 +1,52 @@
 const { studentService } = require("../services");
 
 const addStudent =async (req,res)=>{
-    console.log(req.body);
+    try{
 
-    let body = req.body
+        let body = req.body
 
-    let user = await studentService.addStudent(body)
+        let studentExist = await studentService.findStudent(req.body.firstName)
+        
+        if(studentExist)
+        {
+            throw new Error('student already exist!')
+        }
 
 
-    res.render('./index',{message:user})
 
-    // // console.log(user,"user");
-    // res.status(201).json({
-    //     message:"user created success",
-    //     user
-    // })
+        let student = await studentService.addStudent(body)
+        if(!student)
+        {
+            throw new Error('student not added')
+        }
+
+        res.status(200).json({message:"student added success",student})
+
+    }catch(err)
+    {
+
+        res.status(400).json({success:false,err:err.message})
+
+    }
+   
 }
 
 const getStudent =async (req,res)=>{
-   
+   try{
 
-    let user = await studentService.getStudent()
+    let student = await studentService.getStudent()
+    if(!student)
+    {
+        throw new Error('student not found!')
+    }
+    res.status(200).json({message:'student get success',student})
 
-    res.status(200).json({
-        message:'get student success',
-        student:user
-    })
+   }catch(err)
+   {
+    res.status(400).json({success:false,err:err.message})
+   }
 
-
+    
 
 }
 
