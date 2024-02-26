@@ -2,40 +2,39 @@
 const { studentSchema } = require("../models")
 
 
-const addStudent =(body)=>{
-
-
-   
+const addStudent = (body) => {
    return studentSchema.create(body)
-  
-
 }
 
 
-const getStudent= () => {
-
+const getStudent = () => {
    return studentSchema.find()
- 
 }
 
 
-const findUser = (id)=>{
-
+const findUser = (id) => {
    return studentSchema.findById(id)
 }
 
 
-const findStudent =(firstName)=>{
+const findStudent = (firstName) => {
 
    // console.log(firstName);
 
-   return studentSchema.findOne({firstName})
+   return studentSchema.findOne({ firstName })
 
 }
 
 
-const deleteStudent =(id)=>{
+const deleteStudent = (id) => {
    return studentSchema.findByIdAndDelete(id)
 }
 
-module.exports={addStudent,getStudent,findUser,deleteStudent,findStudent}
+
+const updateStudent = (body, id) => {
+
+   return studentSchema.findByIdAndUpdate(id, { $set: body })
+
+}
+
+module.exports = { addStudent, getStudent, findUser, deleteStudent, findStudent, updateStudent }

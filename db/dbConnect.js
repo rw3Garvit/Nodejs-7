@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
-const connectDB=()=>{
+const connectDB = () => {
 
 
-    mongoose.connect('mongodb://127.0.0.1:27017/node7').then(()=>{
+    mongoose.connect('mongodb+srv://garvit:123@cluster0.ay4qlqk.mongodb.net/node7').then(() => {
         console.log('db Connected');
-    }).catch((err)=>{
+    }).catch((err) => {
         console.log(err);
     })
 
 }
 
-module.exports=connectDB
+module.exports = connectDB
