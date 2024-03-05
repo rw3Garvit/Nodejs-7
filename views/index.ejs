@@ -7,21 +7,15 @@
 </head>
 <body>
 
-    <form action="/v1/student/add" method="post">
-        <input type="text" name="firstName">
-        <input type="text" name="lastName">
-        <input type="number" name="mobile">
-        <input type="number" name="age" min="1" max="100">
+    <form action="/v1/admin/add" method="post" enctype="multipart/form-data">
+        <input type="text" name="email">
+        <input type="text" name="password">
+        <input type="file" name="profile">
+    
         <input type="submit">
     </form>
 
 
-    <% message?.forEach(element => { %>
-
-
-        <h1><%= element.firstName %></h1>
-     
-    <% }) %>
 
   
     
