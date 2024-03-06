@@ -8,6 +8,8 @@ const route = express.Router()
 
 
 
-route.post('/add', upload.single('imageName'), adminContoller.addAdmin)
+route.post('/register', upload.single('profile'), adminContoller.addAdmin)
+route.post('/login',adminContoller.login)
+route.get('/profile',adminContoller.getProfile)
 
 module.exports=route

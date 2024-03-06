@@ -6,4 +6,10 @@ const addAdmin =(body)=>{
 
 }
 
-module.exports={addAdmin}
+const findAdminByEmail = (email)=>{
+
+    return adminSchema.findOne({email})
+
+}
+
+module.exports={addAdmin,findAdminByEmail}

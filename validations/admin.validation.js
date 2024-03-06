@@ -8,5 +8,9 @@ const admin = {
       }),
 }
 
+let login ={
+  
+}
+
 
 module.exports={admin}
