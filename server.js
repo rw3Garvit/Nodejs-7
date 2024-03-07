@@ -6,6 +6,7 @@ const connectDB = require('./db/dbConnect')
 const routes = require('./routes')
 const path = require('path')
 const { studentService } = require('./services')
+const cookieParser = require('cookie-parser')
 const app = express()
 
 
@@ -13,6 +14,7 @@ const app = express()
 //body parser
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
+app.use(cookieParser())
 
 // app.use(express.json())
 // app.use(express.urlencoded({extended:false}))

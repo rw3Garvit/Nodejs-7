@@ -1,3 +1,4 @@
+const { createToken } = require("../middlewares/auth")
 const { adminService } = require("../services")
 
 const addAdmin = async(req,res)=>{
@@ -40,7 +41,10 @@ try{
     }else{
         if(password === admin.password)
         {
-            res.status(200).json({message:"login success"})
+            console.log(admin)
+            let token = createToken(admin)
+            res.cookie("token",token)
+            res.status(200).json({message:"login success",token})
         }else{
             throw new Error('password invalid')
         }
