@@ -7,6 +7,7 @@ const routes = require('./routes')
 const path = require('path')
 const { studentService } = require('./services')
 const cookieParser = require('cookie-parser')
+const { autheticate } = require('./middlewares/auth')
 const app = express()
 
 

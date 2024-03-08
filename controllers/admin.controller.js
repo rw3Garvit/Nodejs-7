@@ -1,5 +1,6 @@
 const { createToken } = require("../middlewares/auth")
 const { adminService } = require("../services")
+const { sendEmail } = require("../services/email.service")
 
 const addAdmin = async(req,res)=>{
 
@@ -15,6 +16,8 @@ const addAdmin = async(req,res)=>{
 
     const admin= await adminService.addAdmin(body)
 
+    let testMail =  await sendEmail(email,'Test Mail','Hello this is test mail')
+    console.log(testMail);
 
     res.status(200).json({
         message:"admin added success",
@@ -62,7 +65,9 @@ try{
 
 let getProfile =(req,res)=>{
 
-    res.status(200).json({message:"profile get success"})
+    let admin = req.admin
+
+    res.status(200).json({message:"profile get success",admin})
 
 }
 
