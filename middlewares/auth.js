@@ -16,14 +16,32 @@ let autheticate = (req,res,next)=>{
       res.status(400).json({message:"you are not login"})
    }
 
-   let admin = jwt.verify(token,secret)
+   let user = jwt.verify(token,secret)
 
-   console.log(admin.data);
+   console.log(user.data);
 
-   req.admin =admin
+   req.user =user
    next()
-
 
 }
 
-module.exports={createToken,autheticate}
+
+let auth=([...role])=>{
+
+
+   return (req,res,next)=>{
+      let user = req.user
+
+
+      if(role.includes(user.data.role))
+      {
+     
+         next()
+      }
+
+      res.status(400).json({message:"you are not authorized"})
+   }
+
+}
+
+module.exports={createToken,autheticate,auth}
