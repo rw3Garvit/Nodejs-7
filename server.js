@@ -8,6 +8,7 @@ const path = require('path')
 const { studentService } = require('./services')
 const cookieParser = require('cookie-parser')
 const { autheticate } = require('./middlewares/auth')
+const cors = require('cors')
 const app = express()
 
 
@@ -16,6 +17,11 @@ const app = express()
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(bodyParser.json())
 app.use(cookieParser())
+let option = {
+    origin:'*'
+}
+app.use(cors(option))
+
 
 // app.use(express.json())
 // app.use(express.urlencoded({extended:false}))
@@ -26,6 +32,7 @@ app.set('view engine','ejs')
 
 //routes
 app.use('/v1',routes)
+
 
 app.get('/',async (req,res)=>{
 
