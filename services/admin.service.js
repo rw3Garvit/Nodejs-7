@@ -1,11 +1,15 @@
-const { adminSchema } = require("../models")
+const { adminSchema } = require("../models");
 
-const addAdmin =(body)=>{
-    return adminSchema.create(body)
-}
+const addAdmin = (body) => {
+  return adminSchema.create(body);
+};
 
-const findAdminByEmail = (email)=>{
-    return adminSchema.findOne({email})
-}
+const findAdminByEmail = (email) => {
+  return adminSchema.findOne({ email });
+};
 
-module.exports={addAdmin,findAdminByEmail}
+const deleteAdmin = (id) => {
+  return adminSchema.findByIdAndDelete(id);
+};
+
+module.exports = { addAdmin, findAdminByEmail, deleteAdmin };
